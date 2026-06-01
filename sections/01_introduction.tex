@@ -1,0 +1,30 @@
+% ==========================================
+% sections/01_introduction.tex
+% Introduction & Roadmap Slides
+% ==========================================
+
+\begin{frame}{Roadmap}
+    \tableofcontents
+\end{frame}
+
+\section{Structural Layouts}
+
+\begin{frame}{Dual-Column Content Management}
+    \begin{columns}[T]
+        \column{0.5\textwidth}
+        \textbf{Local Training (Client)}
+        \begin{itemize}
+            \item Process raw data on-device
+            \item Compute gradient updates
+            \item \alert{Minimize} bandwidth usage
+        \end{itemize}
+
+        \column{0.5\textwidth}
+        \textbf{Global Aggregation (Server)}
+        \begin{enumerate}
+            \item Receive encrypted updates
+            \item Execute \texttt{FedAvg} algorithm
+            \item Broadcast new global model
+        \end{enumerate}
+    \end{columns}
+\end{frame}

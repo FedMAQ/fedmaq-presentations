@@ -1,0 +1,31 @@
+% ==========================================
+% preamble/listings-setup.tex
+% Syntax Highlighting for Code Listings
+% ==========================================
+
+% Curated modern colors for listings
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codeblue}{rgb}{0.13,0.29,0.53}
+\definecolor{codegreen}{rgb}{0.18,0.55,0.34}
+\definecolor{codeorange}{rgb}{0.85,0.45,0.10}
+\definecolor{codebackground}{rgb}{0.97,0.97,0.98}
+
+\lstset{
+    backgroundcolor=\color{codebackground},
+    basicstyle=\ttfamily\small,
+    breakatwhitespace=false,
+    breaklines=true,
+    captionpos=b,
+    commentstyle=\color{codegray}\itshape,
+    keepspaces=true,
+    keywordstyle=\color{codeblue}\bfseries,
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codeorange},
+    showspaces=false,
+    showstringspaces=false,
+    showtabs=false,
+    tabsize=4,
+    frame=single,
+    rulecolor=\color{codegray!30},
+    frameround=tttt
+}

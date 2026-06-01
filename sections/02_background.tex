@@ -1,0 +1,27 @@
+% ==========================================
+% sections/02_background.tex
+% Background, Math, & Performance Benchmarks
+% ==========================================
+
+\section{Data \& Technicals}
+
+\begin{frame}{Performance Benchmarks}
+    The objective function for weight updates is defined as:
+    \begin{equation}
+        w_{t+1} \leftarrow w_t - \eta \sum_{k=1}^K \frac{n_k}{n} g_k
+    \end{equation}
+
+    \begin{table}
+        \centering
+        \caption{Comparative Analysis of Aggregation Methods}
+        \begin{tabular}{lccc}
+            \toprule
+            \textbf{Algorithm} & \textbf{Convergence} & \textbf{Privacy} & \textbf{Robustness} \\
+            \midrule
+            FedAvg & Fast & Moderate & Standard \\
+            FedProx & Stable & High & Optimized \\
+            SCAFFOLD & Rapid & Moderate & Variable \\
+            \bottomrule
+        \end{tabular}
+    \end{table}
+\end{frame}

@@ -1,0 +1,42 @@
+\documentclass[10pt, aspectratio=169]{beamer}
+
+% ==========================================
+% Theme & Color Settings (Moloch Theme)
+% ==========================================
+\usetheme{moloch}
+\usecolortheme{moloch}
+
+% ==========================================
+% Modular Preambles & Configurations
+% ==========================================
+\input{preamble/packages.tex}
+\input{preamble/macros.tex}
+\input{preamble/listings-setup.tex}
+
+% ==========================================
+% Presentation Metadata
+% ==========================================
+\title{Federated Learning Frameworks}
+\subtitle{Technical Portfolio Showcase}
+\author{Christian Joseph Bunyi}
+\institute{BS Computer Science}
+\date{\today}
+
+% ==========================================
+% Slide Deck Document Structure
+% ==========================================
+\begin{document}
+
+% Title Slide
+\begin{frame}[plain]
+    \titlepage
+\end{frame}
+
+% Modular Sections Input
+\input{sections/01_introduction.tex}
+\input{sections/02_background.tex}
+\input{sections/03_methodology.tex}
+\input{sections/04_evaluation.tex}
+\input{sections/05_conclusion.tex}
+
+\end{document}

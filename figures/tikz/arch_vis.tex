@@ -1,0 +1,10 @@
+\begin{tikzpicture}[node distance=2cm, auto]
+    \node[draw, rectangle, fill=blue!10] (server) {Global Server};
+    \node[draw, circle, fill=gray!10, below left=1cm and 1cm of server] (c1) {Node 1};
+    \node[draw, circle, fill=gray!10, below right=1cm and 1cm of server] (c2) {Node 2};
+
+    \path[->, thick] (c1) edge node[left] {Update} (server);
+    \path[->, thick] (c2) edge node[right] {Update} (server);
+    \path[->, thick, dashed] (server) edge[bend right] node[left] {Model} (c1);
+    \path[->, thick, dashed] (server) edge[bend left] node[right] {Model} (c2);
+\end{tikzpicture}
