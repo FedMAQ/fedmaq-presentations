@@ -1,0 +1,33 @@
+# ==========================================
+# LaTeX Compilation Ignore Patterns
+# ==========================================
+
+# Core LaTeX auxiliary files
+*.aux
+*.log
+*.toc
+*.nav
+*.snm
+*.out
+*.vrb
+*.synctex.gz
+*.fdb_latexmk
+*.fls
+*.bbl
+*.blg
+*.run.xml
+*.bcf
+*.lof
+*.lot
+
+# VS Code LaTeX Workshop outputs and backups
+*.aux.bak
+*.pdf.bak
+
+# Compilation output (optional but recommended to build locally)
+main.pdf
+
+# OS/Editor files
+.DS_Store
+Thumbs.db
+.vscode/
