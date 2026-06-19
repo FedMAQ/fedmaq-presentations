@@ -1,0 +1,10 @@
+---
+description: Index to FedMAQ domain rules in fedmaq-experiments
+alwaysApply: true
+---
+
+# Thesis Context
+
+Align slides with `../fedmaq-experiments/.cursor/rules/` (FedMAQ, vision classification, 4-phase ablation).
+
+Update `.cursor/project/metadata.md` when thesis framing changes.
