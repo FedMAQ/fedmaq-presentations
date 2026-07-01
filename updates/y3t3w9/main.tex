@@ -1,0 +1,197 @@
+\documentclass[11pt, aspectratio=169]{beamer}
+
+% ==========================================
+% Theme & Color Settings (Moloch Theme)
+% ==========================================
+\usetheme{moloch}
+\usecolortheme{moloch}
+
+% ==========================================
+% Modular Preambles & Configurations (Relative)
+% ==========================================
+\input{../../preamble/packages.tex}
+\input{../../preamble/macros.tex}
+\input{../../preamble/listings-setup.tex}
+
+% ==========================================
+% Presentation Metadata
+% ==========================================
+\title{FedMAQ: Multi-Adaptive Quantization \& Knowledge Distillation}
+\subtitle{Communication-Efficient Federated Learning}
+\author{Christian Joseph Bunyi}
+\institute{Dr. Andrew L. Tan Data Science Institute \\ De La Salle University}
+\date{\today}
+
+% ==========================================
+% Slide Deck Document Structure
+% ==========================================
+\begin{document}
+
+% Slide 1: Title Slide
+\begin{frame}[plain]
+    \titlepage
+\end{frame}
+
+% ==========================================
+% Section 1: The Strategic Pivot
+% ==========================================
+\begin{frame}{Research Status}
+    \begin{itemize}
+        \item We shifted focus from physical IoT/Smart Campus energy forecasting to classical Federated Learning.
+        \item We chose image classification (e.g., MNIST, CIFAR) to make experiments more manageable and reproducibility easier.
+        \item We want to explore multi-adaptive quantization with server-side knowledge distillation with the hopes of further reducing communication while maintaining comparable accuracy.
+    \end{itemize}
+\end{frame}
+
+% ==========================================
+% Section 2: Background & Baseline Inspiration
+% ==========================================
+\begin{frame}{(Some) Related Works on Communication-Efficient FL}
+    \centering
+    \vfill
+    \begin{table}
+        \fontsize{7pt}{9.5pt}\selectfont
+        \begin{tabular}{lcccc p{3.6cm}}
+            \toprule
+            \textbf{Algorithm}     & \textbf{Time-Aware} & \textbf{Data-Aware} & \textbf{Resource-Aware} & \textbf{Uses KD} & \textbf{Key Components}                 \\
+            \midrule
+            DynFed                 & Yes                 & Yes                 & No                      & Yes              & Quantization-Aware KD                   \\
+            AdaDQ-KD               & No                  & No                  & Yes                     & Yes              & Dithering Quantization \& Diff. Privacy \\
+            DAdaQuant              & Yes                 & Yes                 & No                      & No               & Doubly-Adaptive Fixed-Point             \\
+            FedDT                  & No                  & No                  & No                      & Yes              & Ternary Compression                     \\
+            LAQ-HC                 & No                  & Yes                 & Yes                     & No               & Reinforcement Learning                  \\
+            FedPAQ                 & No                  & No                  & No                      & No               & Periodic Averaging                      \\
+            \midrule
+            \textbf{FedMAQ (Ours)} & \textbf{Yes}        & \textbf{Yes}        & \textbf{Yes}            & \textbf{Yes}     & \textbf{3D-Awareness + Logit KD}        \\
+            \bottomrule
+        \end{tabular}
+    \end{table}
+    \vspace{0.15cm}
+
+    {\fontsize{8pt}{9.5pt}\selectfont We explore considering client resource constraints, data skew, and temporal training dynamics.}
+    \vfill
+\end{frame}
+
+% ==========================================
+% Section 3: The FedMAQ Architecture
+% ==========================================
+% \begin{frame}{FedMAQ Architecture}
+%     \begin{columns}[T]
+%         \begin{column}{0.48\textwidth}
+%             \small
+%             \begin{itemize}
+%                 \item The server broadcasts the global model parameters to participating client nodes.
+%                 \item Clients perform local optimization steps on their non-IID datasets.
+%                 \item Uplinks are compressed using multi-adaptive quantization based on live bandwidth and stability.
+%                 \item The server aggregates client logits via knowledge distillation to neutralize quantization noise.
+%             \end{itemize}
+%         \end{column}
+%         \begin{column}{0.48\textwidth}
+%             \centering
+%             \includegraphics[width=\textwidth,height=0.65\textheight,keepaspectratio]{figures/dynfed_fig2.png}
+%             \vspace{0.1cm}
+
+%             {\fontsize{5.5pt}{7pt}\selectfont He et al. (2025 - DynFed), Figure 2: Overview of the training procedure using logits.\\}
+%         \end{column}
+%     \end{columns}
+%     \vfill
+%     \centering
+%     {\fontsize{8pt}{9.5pt}\selectfont Our work is a logical extension of DynFed by He et al (2025).}
+% \end{frame}
+
+% ==========================================
+% Section 4: Experimental Environment & Baselines
+% ==========================================
+% \begin{frame}{Experimental Setup}
+%     \begin{columns}[T]
+%         \begin{column}{0.48\textwidth}
+%             \small
+%             \begin{itemize}
+%                 \item Five standard vision benchmarks are selected: MNIST, FMNIST, CIFAR-10, CIFAR-100, and FEMNIST.
+%                 \item Data distributions across clients are skewed using a Dirichlet concentration parameter $\alpha \in \{0.1, 1, 10\}$.
+%                 \item Bandwidth bottlenecks are simulated using a uniform distribution $U(5, 20)$~Mbps.
+%             \end{itemize}
+%         \end{column}
+%         \begin{column}{0.48\textwidth}
+%             \centering
+%             \includegraphics[width=\textwidth,height=0.65\textheight,keepaspectratio]{figures/jimenez_fig7.png}
+%             \vspace{0.1cm}
+
+%             {\fontsize{5.5pt}{7pt}\selectfont Jimenez et al. (2024), Figure 7: Taxonomy of different types of skew and heterogeneity.\\}
+%         \end{column}
+%     \end{columns}
+%     \vfill
+%     \centering
+%     {\fontsize{8pt}{9.5pt}\selectfont Statistical and system heterogeneity are modeled simultaneously to reflect realistic edge environments.}
+% \end{frame}
+
+\begin{frame}{Classification of Communication-Efficient FL Related Works}
+    \begin{columns}[T]
+        \begin{column}{0.48\textwidth}
+            \begin{block}{Foundational Baselines}
+                \small FedAvg, FedProx
+            \end{block}
+            \vspace{0.2cm}
+            \begin{block}{Static Compression}
+                \small DAdaQuant, FedPAQ
+            \end{block}
+            \vspace{0.2cm}
+            \begin{block}{Pure Distillation}
+                \small FedKD, FedDistill
+            \end{block}
+        \end{column}
+        \begin{column}{0.48\textwidth}
+            \begin{block}{Adaptive Compression}
+                \small AdaGQ, LAQ-HC
+            \end{block}
+            \vspace{0.2cm}
+            \begin{block}{Direct SOTA Competitors}
+                \small DynFed, AdaDQ-KD, FedDT
+            \end{block}
+        \end{column}
+    \end{columns}
+    \vfill
+    \centering
+    {\fontsize{8pt}{9.5pt}\selectfont An 11-algorithm evaluation stack benchmarks FedMAQ against compression, distillation, and adaptive SOTA.}
+\end{frame}
+
+% ==========================================
+% Section 5: Progress & Next Steps
+% ==========================================
+\begin{frame}{Manuscript Progress}
+    \centering
+    \vfill
+    \begin{table}
+        \fontsize{8pt}{11pt}\selectfont
+        \begin{tabular}{lp{8.0cm}}
+            \toprule
+            \textbf{Chapter}                          & \textbf{Status \& Accomplishments} \\
+            \midrule
+            \textbf{Chapter 1: Introduction}          & Outlined                           \\
+            \textbf{Chapter 2: Related Works}         & Outlined                           \\
+            \textbf{Chapter 3: Theoretical Framework} & Outlined                           \\
+            \textbf{Chapter 4: Methodology}           & Outlined                           \\
+            \bottomrule
+        \end{tabular}
+    \end{table}
+    \vfill
+\end{frame}
+
+\begin{frame}{Next Meeting Commitments}
+    \begin{itemize}
+        \item Configure the Flower-based Federated Learning simulation environment for Phase 1 baselines.
+        \item Implement Dirichlet non-IID partitioning pipelines across the selected image classification datasets.
+    \end{itemize}
+\end{frame}
+
+% Slide 8: Q&A / Standout Frame
+\begin{frame}[standout]
+    Thank You!
+    \vspace{0.5cm}
+
+    \begin{center}
+        \large Questions \& Answers
+    \end{center}
+\end{frame}
+
+\end{document}
