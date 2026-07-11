@@ -1,16 +1,10 @@
----
-description: TikZ diagram modularity and styling
-globs: "**/*.tex,figures/tikz/**"
-alwaysApply: false
----
-
 # TikZ Diagram & Vector Graphic Rules
 
 Rules and guardrails for creating and managing custom vector graphics and flowcharts using TikZ in this repository.
 
 ## 1. Modularity & Isolation
 - **Keep complex TikZ coordinates separated:** If a TikZ diagram exceeds 15 lines of code, do **not** write it inline in a section slide file.
-- **Stand-alone Graphics:** Extract the TikZ environment into a separate file under [figures/tikz/](figures/tikz/) and load it using `\input{figures/tikz/filename.tex}` inside the frame.
+- **Stand-alone Graphics:** Extract the TikZ environment into a separate file under [figures/tikz/](../../figures/tikz/) and load it using `\input{figures/tikz/filename.tex}` inside the frame.
 - This allows separate testing, modular editing, and prevents slide files from becoming unreadable text walls.
 
 ## 2. Aesthetics & Color Palettes

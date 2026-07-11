@@ -1,6 +1,6 @@
 # Thesis Metadata & Domain Context
 
-High-level research context for MS CS thesis slides. Domain details: `../fedmaq-experiments/.cursor/rules/`.
+High-level research context for MS CS thesis slides. Domain details: [`../fedmaq-experiments/CLAUDE.md`](../../../fedmaq-experiments/CLAUDE.md).
 
 ---
 
@@ -52,9 +52,3 @@ Communication-efficient federated learning under system and statistical heteroge
 - $\eta$: learning rate
 - $b_k$: quantization bit-width for client $k$
 - $\alpha$: Dirichlet concentration for non-IID partition
-
----
-
-## 6. Slide Preferences
-
-See `.cursor/rules/preferences.mdc` and `beamer_rules.mdc`.

@@ -1,16 +1,10 @@
----
-description: LaTeX compilation and modularity rules
-globs: "**/*.tex"
-alwaysApply: false
----
-
 # LaTeX Compilation & Clean Code Rules
 
 Rules and guardrails for editing and compiling LaTeX files in this repository.
 
 ## 1. Directory & File Modularity
-- **Never add package imports directly in section files.** All packages must go inside [preamble/packages.tex](preamble/packages.tex).
-- **Never define macros in section files.** All macros must go inside [preamble/macros.tex](preamble/macros.tex).
+- **Never add package imports directly in section files.** All packages must go inside [preamble/packages.tex](../../preamble/packages.tex).
+- **Never define macros in section files.** All macros must go inside [preamble/macros.tex](../../preamble/macros.tex).
 - Keep slides modular under `sections/`. Never dump massive content straight into `main.tex`.
 
 ## 2. Compilation Safety & Escapes
