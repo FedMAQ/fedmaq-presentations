@@ -6,7 +6,7 @@ High-level research context for MS CS thesis slides. Domain details: [`../fedmaq
 
 ## 1. Administrative Details
 
-- **Thesis Title**: FedMAQ: Communication-Efficient Federated Learning via Multi-Adaptive Quantization and Knowledge Distillation
+- **Thesis Title**: FedMAQ: Multi-Adaptive Quantization and Knowledge Distillation for Memory-Constrained Federated Learning under Non-IID Data (retitled 2026-07-30; `updates/y3t3w9/` predates it and is left as delivered)
 - **Candidate**: Christian Joseph Bunyi
 - **Degree**: Master of Science in Computer Science
 - **Advisor**: Fritz Flores
