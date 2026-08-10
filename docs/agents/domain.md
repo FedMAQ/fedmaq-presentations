@@ -5,5 +5,5 @@ Read this repository's `CONTEXT.md`, then
 repository owns slide sources and delivered updates; it must not duplicate the
 shared glossary.
 
-Read the applicable `.agent/rules/` before changing TeX, slide design, or
+Read the applicable `.agents/rules/` before changing TeX, slide design, or
 TikZ. Local hard-to-reverse decisions belong in `docs/adr/` when needed.
